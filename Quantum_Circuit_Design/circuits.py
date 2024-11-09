@@ -11,6 +11,7 @@ swap_matrix = np.array([
     [0, 0, 0, 1]
 ])
 
+#H, T, and CNOT gates are the ones we should be looking at
 H = np.array([[1, 1], [1, -1]]) / np.sqrt(2)
 X = np.array([[0, 1], [1, 0]])
 Z = np.array([[1, 0], [0, -1]])
@@ -28,12 +29,14 @@ psi_plus = Operator(CNOT) @ Operator(np.kron(X, np.eye(2))) @ Operator(np.kron(H
 psi_minus = Operator(np.kron(np.eye(2), Z)) @ Operator(CNOT) @ Operator(np.kron(X, np.eye(2))) @ Operator(np.kron(H, np.eye(2)))
 
 # CZ matrix
+#most of these matricies are specific target circuits that we are looking for
 cz_matrix = np.array([
     [1, 0, 0, 0],
     [0, 1, 0, 0],
     [0, 0, 1, 0],
     [0, 0, 0, -1]
 ])
+
 
 
 # GHZ Circuit (3 qubits)
